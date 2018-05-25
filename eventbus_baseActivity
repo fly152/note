@@ -1,0 +1,25 @@
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    if (isRegisterEventBus()) {
+        EventBusUtil.register(this);
+    }
+}
+ 
+/**
+ * 是否注册事件分发
+ *
+ * @return true绑定EventBus事件分发，默认不绑定，子类需要绑定的话复写此方法返回true.
+ */
+protected boolean isRegisterEventBus() {
+    return false;
+}
+ 
+@Override
+public void onDestroy() {
+    super.onDestroy();
+    if (isRegisterEventBus()) {
+        EventBusUtil.unregister(this);
+    }
+}
