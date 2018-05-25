@@ -1,0 +1,2 @@
+stuList.addAll(stuList3); // 报错，由于stuList3为null指针  
+在使用ArrayList的addAll()方法的时候一定要进行非null的判断。
